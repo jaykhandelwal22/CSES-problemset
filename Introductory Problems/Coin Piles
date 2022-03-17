@@ -1,0 +1,48 @@
+
+
+// Write your code here
+#include<bits/stdc++.h>
+using namespace std;
+#define int long long int
+//#define ll long long
+
+int mod = 1000000007;
+
+void init() {
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+
+}
+
+
+
+void solve()
+{
+   int a,b;
+   cin>>a>>b;
+
+   int r1=2*b-a;
+   int r2=2*a-b;
+   if(r1%3!=0 || r2%3!=0 || r1<0 || r2<0)
+   {
+    cout<<"NO"<<endl;
+    return;
+   }
+   cout<<"YES"<<endl;
+   
+}
+int32_t main()
+{
+    init();
+
+    int tests = 1;
+    cin >> tests;
+    for (int tt = 1; tt <= tests; tt++)
+    {
+        solve();
+    }
+
+    return 0;
+}
