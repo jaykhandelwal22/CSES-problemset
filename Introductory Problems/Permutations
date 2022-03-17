@@ -1,0 +1,61 @@
+
+
+// Write your code here
+#include<bits/stdc++.h>
+using namespace std;
+#define int long long int
+//#define ll long long
+
+int mod = 1000000007;
+
+void init() {
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+
+}
+
+
+
+void solve()
+{
+ int n;
+ cin>>n;
+ if(n==1)
+ {
+    cout<<1<<endl;
+    return;
+ }
+ if(n<4)
+ {
+    cout<<"NO SOLUTION"<<endl;
+    return;
+ }
+ for(int i=2;i<=n;i+=2)
+ {
+    cout<<i<<" ";
+ }
+
+ for(int i=1;i<=n;i+=2)
+ {
+    cout<<i<<" ";
+ }
+
+ 
+ cout<<endl;
+
+}
+int32_t main()
+{
+    init();
+
+    int tests = 1;
+    //cin >> tests;
+    for (int tt = 1; tt <= tests; tt++)
+    {
+        solve();
+    }
+
+    return 0;
+}
