@@ -1,0 +1,56 @@
+
+
+// Write your code here
+#include<bits/stdc++.h>
+using namespace std;
+#define int long long int
+//#define ll long long
+
+int mod = 1000000007;
+
+void init() {
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+
+}
+int ans=INT_MAX;
+void solve(int i,vector<int>& a,int w1,int w2)
+{
+    if(i==a.size())
+    {
+        ans=min(ans,abs(w1-w2));
+        return;
+    }
+    solve(i+1,a,w1+a[i],w2);
+    solve(i+1,a,w1,w2+a[i]);
+}
+
+void solve()
+{
+    int n;
+    cin>>n;
+    vector<int> a(n);
+    for (int i = 0; i < n; ++i)
+    {
+        /* code */
+        cin>>a[i];
+    }
+
+    solve(0,a,0,0);
+    cout<<ans<<endl;
+}
+int32_t main()
+{
+    init();
+
+    int tests = 1;
+    //cin >> tests;
+    for (int tt = 1; tt <= tests; tt++)
+    {
+        solve();
+    }
+
+    return 0;
+}
