@@ -1,0 +1,104 @@
+
+
+// Write your code here
+#include<bits/stdc++.h>
+using namespace std;
+#define int long long int
+//#define ll long long
+
+int mod = 1000000007;
+
+void init() {
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+
+}
+
+bool isPos(int row,int col,vector<string>& v)
+{
+    for(int i=row-1;i>=0;i--)
+    {
+        if(v[i][col]=='q')
+        {
+            return false;
+        }
+    }
+    int i=row;
+    int j=col;
+
+    while(i>=0 && j>=0)
+    {
+        if(v[i][j]=='q')
+        {
+            return false;
+        }
+        i--;
+        j--;
+    }
+    i=row;
+    j=col;
+    while(i>=0 && j<8)
+    {
+        if(v[i][j]=='q')
+        {
+            return false;
+        }
+        i--;
+        j++;
+    }
+    return true;
+
+}
+
+void solve(int row,vector<string>& v,int& c)
+{
+    if(row==8)
+    {
+        c++;
+        return;
+    }
+
+    for(int j=0;j<8;j++)
+    {
+        if(v[row][j]=='.')
+        {
+            if(isPos(row,j,v))
+            {
+                v[row][j]='q';
+                solve(row+1,v,c);
+                 v[row][j]='.';
+
+            }
+            
+        }
+    }
+
+}
+
+void solve()
+{
+    vector<string> v(8);
+    for(int i=0;i<8;i++)
+    {
+        cin>>v[i];
+    }
+
+    int ans=0;
+    solve(0,v,ans);
+    cout<<ans<<endl;
+}
+int32_t main()
+{
+    init();
+
+    int tests = 1;
+    //cin >> tests;
+    for (int tt = 1; tt <= tests; tt++)
+    {
+        solve();
+    }
+
+    return 0;
+}
